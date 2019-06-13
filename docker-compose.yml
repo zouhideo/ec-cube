@@ -1,0 +1,16 @@
+version: "3"
+services:
+  ec-cube:
+    build: ./docker/eccube
+    image: eccube:1.10
+    container_name: eccube-demo
+    volumes:
+      - .:/var/www/html
+    environment:
+      - VIRTUAL_HOST=demo.ilandwig.com
+      - LETSENCRYPT_HOST=demo.ilandwig.com
+      - LETSENCRYPT_EMAIL=zouhideo@gmail.com
+      - XDEBUG_PORT=${ECCUBE_XDEBUG_PORT:-9000}
+    expose:
+      - "80"
+      - "9000"
