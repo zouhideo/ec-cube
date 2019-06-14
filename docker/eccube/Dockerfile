@@ -2,8 +2,8 @@ FROM php:7.1-apache
 
 RUN set -x \
     # 高速化のためaptリポジトリを変更
-    && echo "deb http://deb.debian.org/debian jessie main" > /etc/apt/sources.list \
-    && echo "deb http://security.debian.org jessie/updates main" >> /etc/apt/sources.list \
+    #&& echo "deb http://deb.debian.org/debian jessie main" > /etc/apt/sources.list \
+    #&& echo "deb http://security.debian.org jessie/updates main" >> /etc/apt/sources.list \
     && sed -i.bak -e "s%http://deb.debian.org/debian%http://ftp.riken.jp/pub/Linux/debian/debian%g" /etc/apt/sources.list \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -12,6 +12,7 @@ RUN set -x \
         unzip \
         wget \
         zlib1g-dev \
+        iproute \
         libsqlite3-dev \
         libpq-dev \
         libicu-dev \
@@ -45,6 +46,8 @@ RUN curl -sS https://getcomposer.org/installer \
         --install-dir=/usr/local/bin \
     # composerの高速化
     && COMPOSER_ALLOW_SUPERUSER=1 composer global require --optimize-autoloader "hirak/prestissimo"
+    && chown www-data /var/www \
+    && chmod g+s /var/www/html
 
 COPY ./shop.ini /usr/local/etc/php/conf.d/shop.ini
 COPY ./shop.conf /etc/apache2/conf-available/shop.conf

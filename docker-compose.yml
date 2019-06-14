@@ -2,7 +2,7 @@ version: "3"
 services:
   ec-cube:
     build: ./docker/eccube
-    image: eccube:1.10
+    image: eccube:1.0.1
     container_name: eccube-demo
     volumes:
       - .:/var/www/html
