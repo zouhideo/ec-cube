@@ -47,11 +47,13 @@ RUN curl -sS https://getcomposer.org/installer \
     # composerの高速化
     && COMPOSER_ALLOW_SUPERUSER=1 composer global require --optimize-autoloader "hirak/prestissimo" \
     && chown www-data /var/www \
-    && chmod g+s /var/www/html
+    && chmod g+s /var/www/html \
+    && chmod +x ./entrypoint.sh
 
 COPY ./shop.ini /usr/local/etc/php/conf.d/shop.ini
 COPY ./shop.conf /etc/apache2/conf-available/shop.conf
 COPY ./entrypoint.sh /entrypoint.sh
+
 
 RUN a2enconf shop
 
