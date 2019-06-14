@@ -2,8 +2,8 @@ FROM php:7.1-apache
 
 RUN set -x \
     # 高速化のためaptリポジトリを変更
-    #&& echo "deb http://deb.debian.org/debian jessie main" > /etc/apt/sources.list \
-    #&& echo "deb http://security.debian.org jessie/updates main" >> /etc/apt/sources.list \
+    && echo "deb http://deb.debian.org/debian jessie main" > /etc/apt/sources.list \
+    && echo "deb http://security.debian.org jessie/updates main" >> /etc/apt/sources.list \
     && sed -i.bak -e "s%http://deb.debian.org/debian%http://ftp.riken.jp/pub/Linux/debian/debian%g" /etc/apt/sources.list \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
