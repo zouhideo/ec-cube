@@ -45,7 +45,7 @@ RUN curl -sS https://getcomposer.org/installer \
         --filename=composer \
         --install-dir=/usr/local/bin \
     # composerの高速化
-    && COMPOSER_ALLOW_SUPERUSER=1 composer global require --optimize-autoloader "hirak/prestissimo"
+    && COMPOSER_ALLOW_SUPERUSER=1 composer global require --optimize-autoloader "hirak/prestissimo" \
     && chown www-data /var/www \
     && chmod g+s /var/www/html
 
