@@ -58,8 +58,8 @@ RUN chmod +x /entrypoint.sh
 
 RUN a2enconf shop
 
-#EXPOSE 80
-#EXPOSE 9000
+EXPOSE 80
+EXPOSE 9000
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]
