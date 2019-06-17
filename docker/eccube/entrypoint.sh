@@ -16,12 +16,14 @@ echo "${xdebug}" >> /usr/local/etc/php/conf.d/shop.ini
 
 if [ -e "composer.json" ]; then
     #composer install
-    sudo -u www-data composer install
+    #sudo -u www-data composer install
+    composer install
 fi
 
 if [ -e "package.json" ]; then
     #npm install
-    sudo -u www-data npm install
+    #sudo -u www-data npm install
+    npm install
 fi
 
 if [ "${1#-}" != "$1" ]; then
