@@ -57,6 +57,7 @@ COPY ./entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 
+RUN a2enmod ssl
 RUN a2enconf shop
 
 EXPOSE 80
