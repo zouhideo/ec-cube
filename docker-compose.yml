@@ -9,7 +9,7 @@ services:
       - /path/to/certs:/etc/letsencrypt/live
     environment:
       - HOST_UID
-      - VIRTUAL_HOST=${VIRTUAL_HOST:-demo.ilandwig.com}
+      - VIRTUAL_HOST=demo.ilandwig.com
       - VIRTUAL_PROTO=https
       - VIRTUAL_PORT=443
       - LETSENCRYPT_HOST=${LETSENCRYPT_HOST:-demo.ilandwig.com}
