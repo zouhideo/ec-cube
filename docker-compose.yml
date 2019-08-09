@@ -9,6 +9,8 @@ services:
     environment:
       - HOST_UID
       - VIRTUAL_HOST=${VIRTUAL_HOST:-demo.ilandwig.com}
+      - VIRTUAL_PROTO=https
+      - VIRTUAL_PORT=443
       - LETSENCRYPT_HOST=${LETSENCRYPT_HOST:-demo.ilandwig.com}
       - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL:-zouhideo@gmail.com}
       - XDEBUG_PORT=${XDEBUG_PORT:-9000}
@@ -34,4 +36,5 @@ services:
       - ECCUBE_GC_MAXLIFETIME=${ECCUBE_GC_MAXLIFETIME:-1440}
     expose:
       - "80"
+      - "443"
       - "9000"

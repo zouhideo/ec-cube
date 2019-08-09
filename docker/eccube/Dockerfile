@@ -52,6 +52,7 @@ RUN curl -sS https://getcomposer.org/installer \
 
 COPY ./shop.ini /usr/local/etc/php/conf.d/shop.ini
 COPY ./shop.conf /etc/apache2/conf-available/shop.conf
+COPY ./default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 COPY ./entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
@@ -59,6 +60,7 @@ RUN chmod +x /entrypoint.sh
 RUN a2enconf shop
 
 EXPOSE 80
+EXPOSE 443
 EXPOSE 9000
 
 ENTRYPOINT ["/entrypoint.sh"]
