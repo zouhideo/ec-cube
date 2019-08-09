@@ -6,6 +6,7 @@ services:
     container_name: eccube-demo
     volumes:
       - .:/var/www/html
+      - /path/to/certs:/etc/letsencrypt/live
     environment:
       - HOST_UID
       - VIRTUAL_HOST=${VIRTUAL_HOST:-demo.ilandwig.com}
